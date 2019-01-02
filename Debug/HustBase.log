@@ -1,0 +1,15 @@
+﻿Build started 2019/1/2 20:13:48.
+     1>Project "F:\dbms_local\HustBase\HustBase.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\HustBase.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug\HustBase.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt SYS_Manager.cpp
+         SYS_Manager.cpp
+     1>f:\dbms_local\hustbase\sys_manager.cpp(16): error C2562: 'ExecuteAndMessage' : 'void' function returning a value
+                 f:\dbms_local\hustbase\sys_manager.h(8) : see declaration of 'ExecuteAndMessage'
+     1>Done Building Project "F:\dbms_local\HustBase\HustBase.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.86
