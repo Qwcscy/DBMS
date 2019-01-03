@@ -27,7 +27,6 @@ RC Query(char * sql,SelResult * res)
 		return tmp;
 	}
 	selects tmpSel=sqlType->sstr.sel;
-	string tableName="student";
 	tmp=Select(tmpSel.nSelAttrs,tmpSel.selAttrs,tmpSel.nRelations,tmpSel.relations,
 		tmpSel.nConditions,tmpSel.conditions,res);
 	return tmp;
@@ -57,7 +56,9 @@ RC getAttrMap(int nSelAttrs,RelAttr **selAttrs,map<string,vector<AttrNode>> &att
 	RM_FileHandle* tabHandle=(RM_FileHandle*)malloc(sizeof(RM_FileHandle));
 	RM_FileScan* tabScan=(RM_FileScan*)malloc(sizeof(RM_FileScan));
 	RM_Record* tmpRec=(RM_Record*)malloc(sizeof(RM_Record));
-	RM_Record* finalRec=NULL;
+	RM_Record* finalRec=(RM_Record*)malloc(sizeof(RM_Record));
+	finalRec->pData=NULL;
+	finalRec->bValid=false;
 	tmpRec->bValid=false;
 	tabScan->bOpen=false;
 	tabHandle->bOpen=false;
@@ -95,7 +96,8 @@ RC getAttrMap(int nSelAttrs,RelAttr **selAttrs,map<string,vector<AttrNode>> &att
 				if(tmp==SUCCESS)
 				{
 					attrTimes++;
-					finalRec=tmpRec;
+					finalRec->pData=tmpRec->pData;
+					finalRec->bValid=true;
 				}
 				CloseScan(tabScan);
 			}
@@ -155,6 +157,8 @@ RC getAttrMap(int nSelAttrs,RelAttr **selAttrs,map<string,vector<AttrNode>> &att
 	free(tabHandle);
 	free(tabScan);
 	free(tmpRec);
+	//if(finalRec!=NULL)
+		//free(finalRec);
 	return SUCCESS;
 }
 
